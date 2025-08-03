@@ -6,7 +6,7 @@
 #    By: joandre <joandre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 10:21:32 by joandre           #+#    #+#              #
-#    Updated: 2025/02/11 18:28:50 by joandre          ###   ########.fr        #
+#    Updated: 2025/02/04 21:55:23 by joandre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,16 @@ LIBFT_DIR = libft
 GETNEXTLINE_DIR = get_next_line
 GETNEXTLINE = $(GETNEXTLINE_DIR)/get_next_line.a
 LIBFT = $(LIBFT_DIR)/libft.a
-CC = cc
+CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
 MLX = -Lmlx -lmlx -lXext -lX11 -lm -lz
 OBJ = $(addprefix $(SRC_DIR)/, $(SOURCE:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(GETNEXTLINE) MLX
+$(NAME): $(OBJ) $(LIBFT) $(GETNEXTLINE)
 	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(LIBFT) $(GETNEXTLINE) -o $(NAME)
 
-MLX:
-	make -C ./mlx
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
@@ -41,7 +39,6 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	make clean -C ./mlx 
 	rm -f $(OBJ)
 	make -C $(LIBFT_DIR) clean
 	make -C $(GETNEXTLINE_DIR) clean

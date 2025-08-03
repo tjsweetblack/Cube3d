@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/badriano/cube3d/core",
-      "program": "/home/badriano/cube3d/core/build/Debug/outDebug",
+      "cwd": "/nfs/homes/joandre/commCore/intracub/sources",
+      "program": "/nfs/homes/joandre/commCore/intracub/sources/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
